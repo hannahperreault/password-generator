@@ -73,6 +73,7 @@ header {
 }
 
 .btn {
+
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
@@ -87,6 +88,7 @@ header {
   text-align: center;
   cursor: pointer;
 }
+
 
 button[disabled] {
   cursor: default;
