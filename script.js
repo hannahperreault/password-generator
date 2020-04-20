@@ -1,5 +1,13 @@
-// Assignment Code
-var howMany = prompt("How many characters do you want?");
+function checkPrompt() {
+    howManyCheck = prompt("How many characters do you want? (8-128)");
+    if (howManyCheck < 8 || howManyCheck > 128) {
+        alert("Please choose a number 8-128");
+        checkPrompt();
+    }
+}
+checkPrompt();
+
+var howMany = howManyCheck;
 var specialCharacters = confirm("Do you want special characters?");
 var wantUpperCase = confirm("Do you want uppercase letters?");
 var wantNumbers = confirm("Do you want numbers?");
@@ -12,10 +20,10 @@ var totalArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var special = ["~", "!", "@", "#", "$", "&", "^", "*", "(", ")", "-", "_"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+
 var chosenLength = parseInt(howMany);
 var totalArray1;
 var passwordFinal = [];
-//write if for number limit 
 
 function generatePassword() {
     if (specialCharacters) {
@@ -68,9 +76,6 @@ function showPassword() {
 }
 
 generateBtn.addEventListener("click", showPassword);
-
-
-
 
 
 
