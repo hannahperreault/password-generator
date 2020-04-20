@@ -13,9 +13,10 @@ var special = ["~", "!", "@", "#", "$", "&", "^", "*", "(", ")", "-", "_"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 var chosenLength = parseInt(howMany);
-// var totalArray = [];
 var totalArray1;
 var passwordFinal = [];
+//write if for number limit 
+
 function generatePassword() {
     if (specialCharacters) {
         var totalArray1 = totalArray.concat(special);
@@ -24,18 +25,21 @@ function generatePassword() {
     } if (specialCharacters && wantUpperCase && wantNumbers) {
         var totalArray1 = totalArray.concat(special, uppercase, numbers);
     }
-    if (specialCharacters && wantNumbers) {
+    else if (specialCharacters && wantNumbers) {
         var totalArray1 = totalArray.concat(special, numbers);
     }
-
-    if (wantUpperCase) {
-        var totalArray1 = totalArray.concat(uppercase);
-    }
-    if (wantUpperCase && wantNumbers) {
+    else if (wantUpperCase && wantNumbers) {
         var totalArray1 = totalArray.concat(uppercase, numbers);
     }
-    if (wantNumbers) {
+
+    else if (wantUpperCase) {
+        var totalArray1 = totalArray.concat(uppercase);
+    }
+    else if (wantNumbers) {
         var totalArray1 = totalArray.concat(numbers);
+    }
+    else if (specialCharacters === false && wantUpperCase === false && wantNumbers === false) {
+        var totalArray1 = totalArray;
     }
 
 
@@ -71,31 +75,4 @@ generateBtn.addEventListener("click", showPassword);
 
 
 
-
-
-// Write password to the #password input
-
-//function writePassword() {
-
-//}
-
-// writePassword();
-
-
-
-// function writePassword() {
-//     var length = howMany;
-//    var characters = "abcdefghijklmnop";
-``
-// }
-
-// var password = generatePassword();
-// var passwordText = document.querySelector("#password");
-
-// passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 
