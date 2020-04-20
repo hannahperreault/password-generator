@@ -19,45 +19,53 @@ var passwordFinal = [];
 function generatePassword() {
     if (specialCharacters) {
         var totalArray1 = totalArray.concat(special);
-    } if (wantUpperCase) {
+    } if (specialCharacters && wantUpperCase) {
         var totalArray1 = totalArray.concat(special, uppercase);
-    } if (wantNumbers) {
+    } if (specialCharacters && wantUpperCase && wantNumbers) {
         var totalArray1 = totalArray.concat(special, uppercase, numbers);
     }
-    // console.log(totalArray1);
-    // totalArray.concat(totalArray1);
-    // console.log(totalArray);
+    if (specialCharacters && wantNumbers) {
+        var totalArray1 = totalArray.concat(special, numbers);
+    }
+
+    if (wantUpperCase) {
+        var totalArray1 = totalArray.concat(uppercase);
+    }
+    if (wantUpperCase && wantNumbers) {
+        var totalArray1 = totalArray.concat(uppercase, numbers);
+    }
+    if (wantNumbers) {
+        var totalArray1 = totalArray.concat(numbers);
+    }
+
+
+
+    console.log(totalArray1);
     var password = [];
     for (var i = 0; i < chosenLength; i++) {
         var totalCharacters = totalArray1[Math.floor(Math.random() * totalArray1.length)];
         password.push(totalCharacters);
     }
     console.log(password);
-    passwordFinal.push(password);
+
+    passwordFinal.push(password.join(""));
+    console.log(passwordFinal);
+
 }
 
-// totalArray.concat(totalArray1);
 
 generatePassword();
 
 console.log(passwordFinal);
-// console.log(totalArray);
-
-// var password = [];
-// for (var i = 0; i < chosenLength; i++) {
-//     var totalCharacters = totalArray[Math.floor(Math.random() * totalArray.length)];
-//     password.push(totalCharacters);
-// }
-// console.log(password);
 
 
-//function createLibrary() {
-//  if (specialCharacters && wantUpperCase && wantNumbers) {
-//     var totalArray = [lowercase + special + uppercase + numbers];
-//  var promptNumber = parseInt(howMany);
-// var randomPassword = Math.floor(Math.random() * totalArray.length);
-//   }
-//}
+function showPassword() {
+    document.getElementById("password").innerHTML = passwordFinal;
+}
+
+generateBtn.addEventListener("click", showPassword);
+
+
 
 
 
